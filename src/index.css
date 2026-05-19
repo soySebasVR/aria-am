@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    @apply bg-navy-900 text-text-primary font-sans antialiased;
+    margin: 0;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-navy-800; }
+  ::-webkit-scrollbar-thumb { @apply bg-navy-500 rounded-full; }
+}
+
+@layer utilities {
+  .border-subtle { border-color: rgba(65, 71, 85, 0.2); }
+  .bg-card { @apply bg-navy-700; }
+}
