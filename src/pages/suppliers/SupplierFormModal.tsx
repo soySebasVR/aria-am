@@ -53,7 +53,7 @@ export function SupplierFormModal({ open, onClose, supplier }: Props) {
   return (
     <Modal open={open} onClose={onClose} title={isEdit ? 'Edit Supplier' : 'Register Supplier'}>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Company"      placeholder="Enter company name"   error={errors.company?.message}     {...register('company')} />
           <Input label="Contact"      placeholder="Enter contact name"    error={errors.contact?.message}     {...register('contact')} />
           <Input label="Nro. Document" placeholder="e.g. WD-2024-001"   error={errors.nroDocument?.message} {...register('nroDocument')} />

@@ -55,7 +55,8 @@ export function SupplierListPage() {
 
         {/* Table */}
         <div className="bg-navy-700 border border-subtle rounded-lg overflow-hidden shadow-xl">
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[640px]">
             <thead>
               <tr className="border-b border-subtle bg-navy-800/50">
                 {['COMPANY','COUNTRY','CONTACT','EMAIL','STATE','ACTIONS'].map(h => (
@@ -92,6 +93,7 @@ export function SupplierListPage() {
               ))}
             </tbody>
           </table>
+          </div>
           <Pagination page={page} totalPages={totalPages} total={filtered.length} pageSize={PAGE_SIZE} onPageChange={setPage} />
         </div>
       </div>

@@ -68,7 +68,7 @@ export function ProductFormModal({ open, onClose, product }: Props) {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <Input label="Product Name" placeholder="Enter product name" error={errors.name?.message} {...register('name')} />
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="ASIN"  placeholder="e.g. B08L5L8T8V" error={errors.asin?.message}  {...register('asin')} />
           <Input label="SKU"   placeholder="Enter SKU code"  error={errors.sku?.message}   {...register('sku')} />
         </div>
@@ -78,7 +78,7 @@ export function ProductFormModal({ open, onClose, product }: Props) {
           {suppliers.map(s => <option key={s.id} value={s.id}>{s.company}</option>)}
         </Select>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Price (USD)"    type="number" step="0.01" placeholder="0.00" error={errors.price?.message}       {...register('price')} />
           <Input label="BuyBox Price"   type="number" step="0.01" placeholder="0.00" error={errors.buyboxPrice?.message}  {...register('buyboxPrice')} />
           <Input label="Profit"         type="number" step="0.01" placeholder="0.00" error={errors.profit?.message}      {...register('profit')} />
