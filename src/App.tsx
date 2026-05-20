@@ -3,8 +3,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppLayout } from './components/layout/AppLayout';
 import { SupplierListPage }   from './pages/suppliers/SupplierListPage';
 import { SupplierDetailPage } from './pages/suppliers/SupplierDetailPage';
+import { SupplierFormPage }   from './pages/suppliers/SupplierFormPage';
 import { ProductListPage }    from './pages/products/ProductListPage';
 import { ProductDetailPage }  from './pages/products/ProductDetailPage';
+import { ProductFormPage }    from './pages/products/ProductFormPage';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 1000 * 30, retry: 1 } },
@@ -27,12 +29,16 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/suppliers" replace />} />
           <Route element={<AppLayout />}>
-            <Route path="/home"             element={<PlaceholderPage title="Home Dashboard" />} />
-            <Route path="/suppliers"        element={<SupplierListPage />} />
-            <Route path="/suppliers/:id"    element={<SupplierDetailPage />} />
-            <Route path="/products"         element={<ProductListPage />} />
-            <Route path="/products/:id"     element={<ProductDetailPage />} />
-            <Route path="/purchase-orders"  element={<PlaceholderPage title="Purchase Orders" />} />
+            <Route path="/home"                   element={<PlaceholderPage title="Home Dashboard" />} />
+            <Route path="/suppliers"              element={<SupplierListPage />} />
+            <Route path="/suppliers/new"          element={<SupplierFormPage />} />
+            <Route path="/suppliers/:id"          element={<SupplierDetailPage />} />
+            <Route path="/suppliers/:id/edit"     element={<SupplierFormPage />} />
+            <Route path="/products"               element={<ProductListPage />} />
+            <Route path="/products/new"           element={<ProductFormPage />} />
+            <Route path="/products/:id"           element={<ProductDetailPage />} />
+            <Route path="/products/:id/edit"      element={<ProductFormPage />} />
+            <Route path="/purchase-orders"        element={<PlaceholderPage title="Purchase Orders" />} />
           </Route>
           <Route path="*" element={<Navigate to="/suppliers" replace />} />
         </Routes>

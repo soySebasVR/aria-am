@@ -1,36 +1,52 @@
-export type SupplierState = 'Active' | 'Inactive';
-export type ProductStatus = 'In Stock' | 'Low Stock' | 'Out of Stock';
+export type SupplierStatus = 'Active' | 'Archived' | 'In Stock';
+export type ProductStatus  = 'In Stock' | 'Low Stock' | 'Out of Stock';
 
 export interface Supplier {
   id: string;
   company: string;
-  nroDocument: string;
-  email: string;
+  sku: string;
+  address: string;
   contact: string;
-  direccion: string;
-  country: string;
-  state: SupplierState;
+  email: string;
+  phone: string;
+  website: string;
+  nifDocument: string;
+  status: SupplierStatus;
+  moq: number;
+  freeDelivery: number;
+  leadTime: string;
+  bankName: string;
+  routingNumber: string;
+  accountNumber: string;
   createdAt: string;
 }
 
 export interface Product {
   id: string;
-  name: string;
   asin: string;
+  name: string;
   sku: string;
-  supplierId: string;
-  supplierName: string;
-  price: number;
-  buyboxPrice: number;
-  profit: number;
-  roi: number;
-  sales30d: number;
-  fbaAvailable: number;
+  description: string;
+  catalogPage: number;
+  casePack: number;
+  casePrice: number;
+  unitPrice: number;
+  upc: string;
   status: ProductStatus;
   imageColor: string;
+  profit: number;
+  margin: number;
+  roi: number;
+  buyboxPrice: number;
+  fbaAvailable: number;
+  sales90d: number;
+  sales60d: number;
+  sales30d: number;
+  sales15d: number;
+  sales7d: number;
 }
 
 export type CreateSupplierDto = Omit<Supplier, 'id' | 'createdAt'>;
 export type UpdateSupplierDto = Partial<CreateSupplierDto>;
-export type CreateProductDto = Omit<Product, 'id' | 'imageColor'>;
-export type UpdateProductDto = Partial<CreateProductDto>;
+export type CreateProductDto  = Omit<Product, 'id' | 'imageColor'>;
+export type UpdateProductDto  = Partial<CreateProductDto>;
